@@ -1,0 +1,382 @@
+func Main()
+v1 = 12
+v2 = alloc(v1)
+v3 = 16
+v4 = alloc(v3)
+v5 = @LSStart
+[v4 + 0] = v5
+v6 = @LSPrint
+[v4 + 4] = v6
+v7 = @LSSearch
+[v4 + 8] = v7
+v8 = @LSInit
+[v4 + 12] = v8
+[v2 + 0] = v4
+v9 = 10
+if0 v2 goto l0
+v10 = [v2 + 0]
+v11 = [v10 + 0]
+v12 = call v11(v2 v9)
+goto l1
+l0:
+error("null pointer")
+l1:
+print(v12)
+      return v0
+
+func LSStart(this sz)
+if0 this goto l2
+v13 = [this + 0]
+v14 = [v13 + 12]
+v15 = call v14(this sz)
+goto l3
+l2:
+error("null pointer")
+l3:
+aux01 = v15
+if0 this goto l4
+v16 = [this + 0]
+v17 = [v16 + 4]
+v18 = call v17(this)
+goto l5
+l4:
+error("null pointer")
+l5:
+aux02 = v18
+v19 = 9999
+print(v19)
+v20 = 8
+if0 this goto l6
+v21 = [this + 0]
+v22 = [v21 + 8]
+v23 = call v22(this v20)
+goto l7
+l6:
+error("null pointer")
+l7:
+print(v23)
+v24 = 12
+if0 this goto l8
+v25 = [this + 0]
+v26 = [v25 + 8]
+v27 = call v26(this v24)
+goto l9
+l8:
+error("null pointer")
+l9:
+print(v27)
+v28 = 17
+if0 this goto l10
+v29 = [this + 0]
+v30 = [v29 + 8]
+v31 = call v30(this v28)
+goto l11
+l10:
+error("null pointer")
+l11:
+print(v31)
+v32 = 50
+if0 this goto l12
+v33 = [this + 0]
+v34 = [v33 + 8]
+v35 = call v34(this v32)
+goto l13
+l12:
+error("null pointer")
+l13:
+print(v35)
+v36 = 55
+      return v36
+
+func LSPrint(this)
+v37 = 1
+j = v37
+l14:
+if0 this goto l15
+v38 = 4
+v39 = 1
+v39 = v38 * v39
+v39 = v38 + v39
+v40 = this + v39
+size = [this + 8]
+goto l16
+l15:
+error("null pointer")
+l16:
+v41 = j < size
+if0 v41 goto l17
+if0 this goto l18
+v42 = 4
+v43 = 0
+v43 = v42 * v43
+v43 = v42 + v43
+v44 = this + v43
+number = [this + 4]
+goto l19
+l18:
+error("null pointer")
+l19:
+if0 this goto l20
+v45 = 4
+v46 = 0
+v46 = v45 * v46
+v46 = v45 + v46
+v47 = this + v46
+if0 v47 goto l20
+v48 = [v47 + 0]
+v49 = [v48 + 0]
+v50 = 0
+v51 = 1
+v52 = v50 - j
+v52 = v52 - v51
+v53 = v52 < v50
+if0 v53 goto l21
+v49 = v49 - v51
+v54 = v49 < j
+if0 v54 goto l22
+error("array index out of bounds")
+l22:
+v55 = v45 * j
+v55 = v55 + v45
+v56 = v48 + v55
+v57 = [v56 + 0]
+goto l23
+l20:
+error("null pointer")
+l21:
+error("array index out of bounds")
+l23:
+print(v57)
+v58 = 1
+v59 = j + v58
+j = v59
+goto l14
+l17:
+v60 = 0
+      return v60
+
+func LSSearch(this num)
+v61 = 1
+j = v61
+v62 = 0
+ls01 = v62
+v63 = 0
+ifound = v63
+l24:
+if0 this goto l25
+v64 = 4
+v65 = 1
+v65 = v64 * v65
+v65 = v64 + v65
+v66 = this + v65
+size = [this + 8]
+goto l26
+l25:
+error("null pointer")
+l26:
+v67 = j < size
+if0 v67 goto l27
+if0 this goto l28
+v68 = 4
+v69 = 0
+v69 = v68 * v69
+v69 = v68 + v69
+v70 = this + v69
+number = [this + 4]
+goto l29
+l28:
+error("null pointer")
+l29:
+if0 this goto l30
+v71 = 4
+v72 = 0
+v72 = v71 * v72
+v72 = v71 + v72
+v73 = this + v72
+if0 v73 goto l30
+v74 = [v73 + 0]
+v75 = [v74 + 0]
+v76 = 0
+v77 = 1
+v78 = v76 - j
+v78 = v78 - v77
+v79 = v78 < v76
+if0 v79 goto l31
+v75 = v75 - v77
+v80 = v75 < j
+if0 v80 goto l32
+error("array index out of bounds")
+l32:
+v81 = v71 * j
+v81 = v81 + v71
+v82 = v74 + v81
+v83 = [v82 + 0]
+goto l33
+l30:
+error("null pointer")
+l31:
+error("array index out of bounds")
+l33:
+aux01 = v83
+v84 = 1
+v85 = num + v84
+aux02 = v85
+v86 = aux01 < num
+if0 v86 goto l34
+v87 = 0
+nt = v87
+goto l35
+l34:
+v88 = aux01 < aux02
+v89 = 1
+v90 = v89 - v88
+if0 v90 goto l36
+v91 = 0
+nt = v91
+goto l37
+l36:
+v92 = 1
+ls01 = v92
+v93 = 1
+ifound = v93
+if0 this goto l38
+v94 = 4
+v95 = 1
+v95 = v94 * v95
+v95 = v94 + v95
+v96 = this + v95
+size = [this + 8]
+goto l39
+l38:
+error("null pointer")
+l39:
+j = size
+l37:
+l35:
+v97 = 1
+v98 = j + v97
+j = v98
+goto l24
+l27:
+      return ifound
+
+func LSInit(this sz)
+if0 this goto l40
+v99 = 4
+v100 = 1
+v100 = v99 * v100
+v100 = v99 + v100
+v101 = this + v100
+size = [this + 8]
+goto l41
+l40:
+error("null pointer")
+l41:
+[this + 8] = sz
+if0 this goto l42
+v102 = 4
+v103 = 0
+v103 = v102 * v103
+v103 = v102 + v103
+v104 = this + v103
+number = [this + 4]
+goto l43
+l42:
+error("null pointer")
+l43:
+v106 = 4
+v105 = sz * v106
+v105 = v105 + v106
+v107 = alloc(v105)
+[v107 + 0] = sz
+[this + 4] = v107
+v108 = 1
+j = v108
+if0 this goto l44
+v109 = 4
+v110 = 1
+v110 = v109 * v110
+v110 = v109 + v110
+v111 = this + v110
+size = [this + 8]
+goto l45
+l44:
+error("null pointer")
+l45:
+v112 = 1
+v113 = size + v112
+k = v113
+l46:
+if0 this goto l47
+v114 = 4
+v115 = 1
+v115 = v114 * v115
+v115 = v114 + v115
+v116 = this + v115
+size = [this + 8]
+goto l48
+l47:
+error("null pointer")
+l48:
+v117 = j < size
+if0 v117 goto l49
+v118 = 2
+v119 = v118 * j
+aux01 = v119
+v120 = 3
+v121 = k - v120
+aux02 = v121
+if0 this goto l50
+v122 = 4
+v123 = 0
+v123 = v122 * v123
+v123 = v122 + v123
+v124 = this + v123
+number = [this + 4]
+goto l51
+l50:
+error("null pointer")
+l51:
+v125 = aux01 + aux02
+if0 this goto l52
+v126 = 4
+v127 = 0
+v127 = v126 * v127
+v127 = v126 + v127
+v128 = this + v127
+if0 v128 goto l52
+v129 = [v128 + 0]
+v130 = [number + 0]
+v131 = 0
+v132 = 1
+v133 = v131 - j
+v133 = v133 - v132
+v134 = v133 < v131
+if0 v134 goto l53
+v130 = v130 - v132
+v135 = v130 < j
+if0 v135 goto l54
+error("array index out of bounds")
+l54:
+v136 = v126 * j
+v136 = v126 + v136
+v137 = v129 + v136
+[v137 + 0] = v125
+goto l55
+l52:
+error("null pointer")
+l53:
+error("array index out of bounds")
+l55:
+v138 = 1
+v139 = j + v138
+j = v139
+v140 = 1
+v141 = k - v140
+k = v141
+goto l46
+l49:
+v142 = 0
+      return v142
+
+
